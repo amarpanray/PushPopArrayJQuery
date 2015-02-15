@@ -1,0 +1,76 @@
+
+<html>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+ 
+ <script>
+
+$(document).ready(function() {
+
+var ArrayFullRatingDescription = [];
+
+$("#AddButton").click(function()
+		{
+			//ArrayFullRatingDescription += [$("#decOne").val()+"."+$("#decTwo").val()+" = "+$("#RatingDescription").val()+". "];
+                        ArrayFullRatingDescription.push($("#decOne").val()+"."+$("#decTwo").val()+" = "+$("#RatingDescription").val()+". ");
+			$("#fullratingdesc").html(ArrayFullRatingDescription);                   	
+			//$("#fullratingdesc").html(ArrayFullRatingDescription.join("<br>"));
+		});
+
+$("#RemoveButton").click(function()
+{
+		ArrayFullRatingDescription.pop();
+		$("#fullratingdesc").html(ArrayFullRatingDescription);
+		 // $("#fullratingdesc").html(ArrayFullRatingDescription.join("<br>"));
+	 
+});
+
+
+ });
+
+
+</script>
+<body>
+<!----input type="text" id="FromDate"> <br>
+<input type="text" id="ToDate"> <br><br><br---->
+
+<p id=""><span style="color:red">*</span><b>&nbsp;Property Type</b></p>
+<select><option>Select a Property Type</option><option>Linkage</option><option>Survey</option></select>
+
+ 
+<br><Br><br>
+<div style="padding:10px">
+                                    <strong>Rating Scale Instructions:    </strong> When creating a rating scale, start with the numeral for the first point in the rating scale.  Add ' = ' and the definition of the rating with the first letter of the first word capitalized and a period and space at the end of the definition.  Then move on to the next point in the rating scale, and so forth.  The rating scale may begin with any number (e.g., 0, 1, 2), and there is no limit to the rating scale range.  An example rating scale is presented below.  
+ <br> <br>
+
+                                             
+                                             0 = Never. 1 = Almost never. 2 = Occasionally. 3 = Often. 4 = Almost always. 5 = Always.<br><br><br>
+ </div>
+
+
+<p id="ratingScale"><span style="color:red">*</span><b>&nbsp;Rating Scale</b></p><p id="fullratingdesc"></p>
+
+ 
+<select id="decOne">
+	<option value="0">0</option>
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+</select>.
+<select id="decTwo">
+	<option value="0">0</option>
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+</select>
+<input type="text" id="RatingDescription" style="width:250px"> <input type="button" id="AddButton" value="Add"><input type="button" id="RemoveButton" value="Remove Last">
+
+<br><br><br>
+<input type="button" value="Create New Property"><input type="button" value="Cancel">
+</body>
+</html>
